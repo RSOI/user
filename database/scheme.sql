@@ -1,0 +1,20 @@
+SET SYNCHRONOUS_COMMIT = 'off';
+CREATE EXTENSION IF NOT EXISTS CITEXT;
+CREATE SCHEMA IF NOT EXISTS quser;
+
+DROP TABLE IF EXISTS quser.user;
+DROP TABLE IF EXISTS quser.services;
+
+CREATE TABLE quser.user (
+	id SERIAL PRIMARY KEY,
+	nickname CITEXT NOT NULL,
+	rating INTEGER DEFAULT 0
+);
+
+CREATE TABLE quser.services (
+	id SERIAL PRIMARY KEY,
+	request CITEXT NOT NULL,
+	request_time TIMESTAMPTZ DEFAULT NOW(),
+	response_status INTEGER NOT NULL,
+	response_error_text CITEXT NULL
+);
