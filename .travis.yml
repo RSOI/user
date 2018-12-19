@@ -6,7 +6,7 @@ before_script:
   - go get github.com/valyala/fasthttp
   - go get github.com/jackc/pgx
   - go get "github.com/stretchr/testify/assert"
-	- go get "github.com/stretchr/testify/mock"
+  - go get "github.com/stretchr/testify/mock"
 script:
   - go build
   - go test
